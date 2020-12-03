@@ -1,18 +1,26 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <b-container>
+      <b-img :src="require('../assets/ginger-with-wine-glass.png')" alt="Ginger with some wine" fluid />
+      <p>Pairswell - pairing is caring </p>
+    </b-container>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
   components: {
-    HelloWorld
   }
 }
 </script>
+
+<style scoped>
+p {
+  font-family: 'Beth Ellen';
+
+  font-size: 3em;
+}
+</style>
