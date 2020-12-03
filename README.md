@@ -1,24 +1,60 @@
-# pairswell
+#[Pairswell](https://upbeat-hamilton-bd0911.netlify.app)
 
-## Project setup
+
+#### A web-app designed to help users discover the perfect wines to pair with thier meals
+##### A General Assembly software engineering project created by [Ryan Bullough](https://github.com/rjbullough)
+
+
+Pairswell was built using **Vue.js**
+
+**It features**
+
+1. A simple UI allowing users to pick the components that make up their meal
+   ![Dropdown example](src/assets/dropdown.png)
+
+---
+
+2. Ranked results based on user choices
+   ![Results](src/assets/results.png)
+
+---
+
+
+### Challenges faced
+
+Implementing Vuex.  This was the first time i've used a centralised state storage solution
 ```
-npm install
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    ingredients: {
+      main: data.ingredients.filter(ingredient => ingredient.type === "main"),
+      secondary: data.ingredients.filter(ingredient => ingredient.type === "secondary"),
+      prep: data.ingredients.filter(ingredient => ingredient.type === "prep"),
+      spice: data.ingredients.filter(ingredient => ingredient.type === "spice")
+    },
+    step: 1,
+    selections: [],
+    results: [],
+  },
+  mutations: {
+    setMainSelection(state, selection) {
+      state.selections[0] = selection.id;
+    },
+    setSecondarySelection(state, selection) {
+      state.selections[1] = selection.id;
+    },
+    setPrepSelection(state, selection) {
+      state.selections[2] = selection.id;
+    },
+    setSpiceSelection(state, selection) {
+      state.selections[3] = selection.id;
+    },
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+---
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### To Do / Future features
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. I'd like to allow users to search nearby shops that sell the wine types reccommended for their meal!
